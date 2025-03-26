@@ -14,7 +14,8 @@
             <div class="logo-container">
                 <img src="logo.png" alt="Raj Electronics Logo" class="logo">
             </div>
-            <nav>
+            <button class="navbar-toggle" id="navbar-toggle">☰</button>
+            <nav id="navbar">
                 <a href="#gallery">Gallery</a>
                 <a href="#home-service">Home Service</a>
                 <a href="#services">Services</a>
@@ -25,97 +26,9 @@
         </div>
     </header>
 
-    <section id="gallery">
-        <h2 class="section-header">Our Shop Gallery</h2>
-        <div class="slider gallery-slider">
-            <div class="slide-track">
-                <img src="image.png" alt="Shop Image 1">
-                <img src="image1.png" alt="Shop Image 2">
-                <img src="image2.png" alt="Shop Image 3">
-                <img src="download.jpg" alt="Shop Image 4">
-                <img src="b.avif" alt="Shop Image 1">
-                <img src="c.avif" alt="Shop Image 2">
-                <img src="d.jpg" alt="Shop Image 3">
-                <img src="e.png" alt="Shop Image 4">
-            </div>
-        </div>
-    </section>
-
-    <section id="home-service">
-        <h2 class="section-header">Home Service</h2>
-        <p>We provide doorstep repair and installation services for various electronic appliances including TVs, ACs,
-            refrigerators, and more. Contact us to schedule a visit!</p>
-        <a href="tel:+919860642235" class="call-button">Call Us: 9860642235</a>
-    </section>
-
-    <section class="hero">
-        <h2 class="section-header">Welcome to Raj Electronics</h2>
-        <p>Your one-stop shop for all electronics needs!</p>
-    </section>
-
-    <section id="services">
-        <h2 class="section-header">Our Services</h2>
-        <div class="slider services-slider">
-            <div class="slide-track">
-                <div class="card">Mobile Repair</div>
-                <div class="card">Laptop Repair</div>
-                <div class="card">TV Repair</div>
-                <div class="card">CCTV Installation</div>
-                <div class="card">AC Repair</div>
-                <div class="card">Fridge Repair</div>
-                <div class="card">Fan Repair</div>
-                <div class="card">Software Installation</div>
-                <div class="card">Mixer Repair</div>
-                <div class="card">Remote Collection</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="products">
-        <h2 class="section-header">Our Products</h2>
-        <div class="slider products-slider">
-            <div class="slide-track">
-                <div class="card">LED TV</div>
-                <div class="card">Laptops</div>
-                <div class="card">Adaptor</div>
-                <div class="card">CCTV Cameras</div>
-                <div class="card">Electronics Gadgets</div>
-                <div class="card">Amplifier</div>
-                <div class="card">AC Cooler</div>
-                <div class="card">Speakers</div>
-                <div class="card">Flex Board</div>
-                <div class="card">Home Theatre Systems</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about-section">
-        <h2 class="section-header">About Us</h2>
-        <img src="a.jpg" alt="About Us Image" class="about-image">
-        <p>Raj Electronics has been serving customers for over two decades, providing high-quality electronics and reliable
-            repair services.</p>
-    </section>
-
-    <footer id="contact">
-        <div class="contact-container">
-            <div class="contact-details">
-                <div class="contact-box">
-                    <h2 class="section-header">Contact Us</h2>
-                    <p>Email: sharmaviswa619@gmail.com</p>
-                    <p>Phone: +91 9763234906</p>
-                    <p>Address: Narhe Ambegaon Rd, Dattanagar, Sai Colony, Ambegaon Budruk, Pune, Maharashtra 411046</p>
-                </div>
-            </div>
-            <div class="divider"></div>
-            <div class="map-container">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30278.009103380627!2d73.82879549450229!3d18.4496051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eacfccc3e53f%3A0x32746668bdf3630e!2sRaj%20Electronics!5e0!3m2!1sen!2sin!4v1738996224278!5m2!1sen!2sin"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </footer>
-
+    <!-- ...existing code... -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6397012296256570"
+     crossorigin="anonymous"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             let sliders = document.querySelectorAll(".slider .slide-track");
@@ -138,6 +51,13 @@
                     }
                 }
                 setInterval(slide, 2000);
+            });
+
+            // Navbar toggle functionality
+            const navbarToggle = document.getElementById('navbar-toggle');
+            const navbar = document.getElementById('navbar');
+            navbarToggle.addEventListener('click', function () {
+                navbar.classList.toggle('active');
             });
         });
     </script>
@@ -171,6 +91,15 @@
         .logo {
             height: 80px;
             border-radius: 20px;
+        }
+
+        .navbar-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
         }
 
         nav {
@@ -333,9 +262,19 @@
                 flex-direction: column;
             }
 
+            .navbar-toggle {
+                display: block;
+            }
+
             nav {
+                display: none;
                 flex-direction: column;
                 align-items: center;
+                width: 100%;
+            }
+
+            nav.active {
+                display: flex;
             }
 
             .gallery img {
